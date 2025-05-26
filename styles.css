@@ -1,41 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nr7kr_ - Social Links</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Welcome to nr7kr_'s Social Links</h1>
-        </header>
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2C3E50; /* Dark blue background */
+    color: white;
+    text-align: center;
+}
 
-        <section class="profile-section">
-            <img src="your-profile-picture.jpg" alt="Profile Picture">
-            <h2>nr7kr_</h2>
-            <p>Follow me on my social media!</p>
-        </section>
+/* Header Section Styles */
+header {
+    background-color: #34495E;
+    padding: 20px;
+    margin-bottom: 30px;
+    animation: fadeInHeader 2s ease-in-out;
+}
 
-        <section class="social-links">
-            <a href="https://www.instagram.com/nr7kr_" class="instagram">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            <a href="https://www.tiktok.com/@nr7kr_" class="tiktok">
-                <i class="fab fa-tiktok"></i> TikTok
-            </a>
-            <a href="https://www.youtube.com/@nr7kr" class="youtube">
-                <i class="fab fa-youtube"></i> YouTube
-            </a>
-        </section>
+/* Animations */
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        <footer>
-            <p>Created with ❤️ by nr7kr_</p>
-        </footer>
-    </div>
+/* Shining Text Effect */
+.shining-name {
+    font-size: 3rem;
+    color: #FF6347; /* Tomato color for shining effect */
+    text-shadow: 0 0 10px #FF6347, 0 0 20px #FF6347, 0 0 30px #FF6347;
+    animation: shine 1.5s infinite alternate;
+}
 
-    <!-- Include FontAwesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-</body>
-</html>
+@keyframes shine {
+    0% {
+        text-shadow: 0 0 10px #FF6347, 0 0 20px #FF6347, 0 0 30px #FF6347;
+    }
+    100% {
+        text-shadow: 0 0 20px #FF6347, 0 0 40px #FF6347, 0 0 60px #FF6347;
+    }
+}
+
+/* Profile Section Styles */
+.profile-section {
+    margin-top: 40px;
+}
+
+.description {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    color: #BDC3C7; /* Lighter text color */
+    font-style: italic;
+}
+
+/* Social Media Links */
+.social-links {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    animation: fadeInLinks 1.5s ease-in-out;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: white;
+    background-color: #2980B9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #3498DB;
+    transform: translateY(-5px);
+}
+
+.social-links i {
+    margin-right: 10px;
+}
+
+/* Footer Section */
+footer {
+    margin-top: 50px;
+    background-color: #34495E;
+    padding: 20px;
+    animation: fadeInFooter 2s ease-in-out;
+}
+
+@keyframes fadeInFooter {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animations for Links */
+@keyframes fadeInLinks {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    /* Responsive Styles for Smaller Screens */
+    .shining-name {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+    }
+}
