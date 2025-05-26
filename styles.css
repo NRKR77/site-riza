@@ -3,61 +3,77 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black; /* Black background */
+    background-color: #000000;
     color: white;
     text-align: center;
+    height: 100vh;
     overflow: hidden;
-    transition: background-color 0.3s ease; /* Smooth transition for background */
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+/* Interactive Background (Mouse Movement) */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0.5) 1px, 
+        transparent 1px, 
+        transparent 10px
+    );
+    animation: moveLines 5s linear infinite;
+}
+
+@keyframes moveLines {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* Header Section Styles */
 header {
-    background-color: #34495E;
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     margin-bottom: 30px;
-    animation: fadeInHeader 2s ease-in-out;
+    z-index: 2;
+    position: relative;
 }
 
-/* Shining Text Effect */
-.shining-name {
+/* Typewriter Effect */
+.typewriter {
     font-size: 3rem;
-    color: white; /* Change shining text color to white */
-    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; /* Set text-shadow to white */
-    animation: shine 1.5s infinite alternate, pulse 2s infinite ease-in-out; /* Adding pulse animation */
+    color: white;
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 4s steps(40) 1s 1 normal both, blink 0.75s step-end infinite;
 }
 
-/* Pulse Animation */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
+@keyframes typing {
+    from {
+        width: 0;
     }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
     50% {
-        transform: scale(1.1);
+        border-color: transparent;
     }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes shine {
-    0% {
-        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
-    }
-    100% {
-        text-shadow: 0 0 20px white, 0 0 40px white, 0 0 60px white;
-    }
-}
-
-/* Profile Section Styles */
-.profile-section {
-    margin-top: 40px;
-}
-
-.description {
-    font-size: 1.3rem;
-    margin-top: 10px;
-    color: #BDC3C7;
-    font-style: italic;
 }
 
 /* Social Media Links */
@@ -66,125 +82,68 @@ header {
     display: flex;
     justify-content: center;
     gap: 20px;
-    animation: fadeInLinks 1.5s ease-in-out;
 }
 
-/* Hover Effects on Social Media Links */
 .social-links a {
     font-size: 1.5rem;
     padding: 15px 30px;
     text-decoration: none;
     color: white;
-    background-color: #2980B9;
+    background-color: #7F8C8D;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-links a:hover {
-    background-color: #3498DB; /* Hover background color */
-    transform: translateY(-5px) scale(1.1); /* Make the button pop up */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: #3498DB;
 }
 
-/* Footer Section */
+.social-links i {
+    margin-right: 10px;
+}
+
+/* Footer Section Styles */
 footer {
     margin-top: 50px;
-    background-color: #34495E;
+    background-color: #111111;
     padding: 20px;
-    animation: fadeInFooter 2s ease-in-out;
+    z-index: 2;
+    position: relative;
 }
 
-@keyframes fadeInFooter {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: white;
 }
 
-/* Animations for Links */
-@keyframes fadeInLinks {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #2980B9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 3;
+    font-size: 16px;
 }
 
-/* Background Animation */
-@keyframes backgroundAnimation {
-    0% {
-        background-color: #2C3E50;
-    }
-    50% {
-        background-color: #34495E;
-    }
-    100% {
-        background-color: #2C3E50;
-    }
+.theme-toggle:hover {
+    background-color: #3498DB;
 }
 
-/* Media Query for Screens Smaller than 768px (Tablets) */
-@media (max-width: 768px) {
-    /* Adjust shining name size */
-    .shining-name {
-        font-size: 2.5rem;
-    }
-
-    /* Adjust description font size */
-    .description {
-        font-size: 1.1rem;
-    }
-
-    /* Stack social media links vertically */
-    .social-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .social-links a {
-        font-size: 1.3rem;
-        padding: 12px 25px;
-    }
-}
-
-/* Media Query for Screens Smaller than 600px (Phones) */
 @media (max-width: 600px) {
-    /* Adjust shining name size */
-    .shining-name {
+    .typewriter {
         font-size: 2rem;
     }
-
-    /* Adjust description font size */
-    .description {
-        font-size: 1rem;
-    }
-
-    /* Stack social media links vertically */
-    .social-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
+    
     .social-links a {
         font-size: 1.2rem;
-        padding: 10px 20px;
-    }
-
-    /* Adjust header text */
-    .animate-header {
-        font-size: 1.8rem;
-    }
-
-    /* Adjust follow text size */
-    .follow-text {
-        font-size: 1rem;
+        padding: 12px 25px;
     }
 }
