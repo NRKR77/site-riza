@@ -131,18 +131,60 @@ footer {
     }
 }
 
-/* Media Query for Smaller Screens */
+/* Media Query for Screens Smaller than 768px (Tablets) */
+@media (max-width: 768px) {
+    /* Adjust shining name size */
+    .shining-name {
+        font-size: 2.5rem;
+    }
+
+    /* Adjust description font size */
+    .description {
+        font-size: 1.1rem;
+    }
+
+    /* Stack social media links vertically */
+    .social-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+        padding: 12px 25px;
+    }
+}
+
+/* Media Query for Screens Smaller than 600px (Phones) */
 @media (max-width: 600px) {
+    /* Adjust shining name size */
     .shining-name {
         font-size: 2rem;
     }
 
+    /* Adjust description font size */
     .description {
         font-size: 1rem;
     }
 
+    /* Stack social media links vertically */
+    .social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .social-links a {
         font-size: 1.2rem;
-        padding: 12px 25px;
+        padding: 10px 20px;
+    }
+
+    /* Adjust header text */
+    .animate-header {
+        font-size: 1.8rem;
+    }
+
+    /* Adjust follow text size */
+    .follow-text {
+        font-size: 1rem;
     }
 }
