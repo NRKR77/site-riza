@@ -3,9 +3,11 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #2C3E50; /* Dark blue background */
+    background-color: black; /* Black background */
     color: white;
     text-align: center;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /* Smooth transition for background */
 }
 
 /* Header Section Styles */
@@ -16,32 +18,33 @@ header {
     animation: fadeInHeader 2s ease-in-out;
 }
 
-/* Animations */
-@keyframes fadeInHeader {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Shining Text Effect */
 .shining-name {
     font-size: 3rem;
-    color: #FF6347; /* Tomato color for shining effect */
-    text-shadow: 0 0 10px #FF6347, 0 0 20px #FF6347, 0 0 30px #FF6347;
-    animation: shine 1.5s infinite alternate;
+    color: white; /* Change shining text color to white */
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white; /* Set text-shadow to white */
+    animation: shine 1.5s infinite alternate, pulse 2s infinite ease-in-out; /* Adding pulse animation */
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes shine {
     0% {
-        text-shadow: 0 0 10px #FF6347, 0 0 20px #FF6347, 0 0 30px #FF6347;
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
     }
     100% {
-        text-shadow: 0 0 20px #FF6347, 0 0 40px #FF6347, 0 0 60px #FF6347;
+        text-shadow: 0 0 20px white, 0 0 40px white, 0 0 60px white;
     }
 }
 
@@ -53,7 +56,7 @@ header {
 .description {
     font-size: 1.3rem;
     margin-top: 10px;
-    color: #BDC3C7; /* Lighter text color */
+    color: #BDC3C7;
     font-style: italic;
 }
 
@@ -66,6 +69,7 @@ header {
     animation: fadeInLinks 1.5s ease-in-out;
 }
 
+/* Hover Effects on Social Media Links */
 .social-links a {
     font-size: 1.5rem;
     padding: 15px 30px;
@@ -74,16 +78,13 @@ header {
     background-color: #2980B9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 .social-links a:hover {
-    background-color: #3498DB;
-    transform: translateY(-5px);
-}
-
-.social-links i {
-    margin-right: 10px;
+    background-color: #3498DB; /* Hover background color */
+    transform: translateY(-5px) scale(1.1); /* Make the button pop up */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
 }
 
 /* Footer Section */
@@ -117,8 +118,21 @@ footer {
     }
 }
 
+/* Background Animation */
+@keyframes backgroundAnimation {
+    0% {
+        background-color: #2C3E50;
+    }
+    50% {
+        background-color: #34495E;
+    }
+    100% {
+        background-color: #2C3E50;
+    }
+}
+
+/* Media Query for Smaller Screens */
 @media (max-width: 600px) {
-    /* Responsive Styles for Smaller Screens */
     .shining-name {
         font-size: 2rem;
     }
